@@ -10,7 +10,7 @@ namespace CodeFirst_VS2014.Entities
 {
     public class CodeFirstDbContext : DbContext
     {
-        public DbSet<Category> Categories { get;set; }
+        public DbSet<Category> Categories { get; set; }
 
         public CodeFirstDbContext()
         {
@@ -20,7 +20,12 @@ namespace CodeFirst_VS2014.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new CategoryConfiguration());            
+
+            /*
+                EF6 has handle by default, therefore the following configuration is not longer required.
+                It's only for reference purpose, if you are using EF5, you do need this.
+            */
+            //modelBuilder.Configurations.Add(new CategoryConfiguration());
         }
     }
 }
